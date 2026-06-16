@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei"}
+:root{--main:#39c470;--dark:#145932;--lite:#a2e9bd;--bg:#05140c;}
+body{
+    background:var(--bg);
+    color:#e8f8ef;
+    padding:35px 5%;
+    position:relative;
+    scroll-behavior: smooth;
+}
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    background-image:linear-gradient(rgba(57,196,112,0.07)1px,transparent 1px),linear-gradient(90deg,rgba(57,196,112,0.07)1px,transparent 1px);
+    background-size:50px 50px;
+    z-index:-3;
+}
+.back{
+    display:inline-block;
+    padding:10px 22px;
+    background:rgba(57,196,112,0.35);
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    margin-bottom:30px;
+    border:1px solid #39c470;
+    margin-right:12px;
+}
+.back:hover{
+    background:rgba(57,196,112,0.55);
+}
+.content{
+    max-width:1250px;
+    margin:0 auto;
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(57,196,112,0.25);
+    border-radius:18px;
+    padding:32px;
+}
+h2{
+    color:var(--lite);
+    margin-bottom:22px;
+}
+p{
+    line-height:1.85;
+    margin-bottom:15px;
+}
+/* 图片容器取消固定高度，自适应原图比例 */
+.img-box{
+    width:100%;
+    border-radius:12px;
+    margin:20px 0;
+    overflow:hidden;
+}
+.img-box img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+}
+</style>
+</head>
+<body>
+
+<a href="../科技报纸/index.html" class="back">← 返回首页</a>
+<a href="../科技报纸/开篇.html" class="back">← 返回上一级</a>
+
+<div class="content">
+<h2>介绍</h2>
+
+<!-- 图片位置1 -->
+<div class="img-box">
+<img src="../科技报纸/图片/4.jpg" alt="园区实景">
+</div>
+
+<p>立足新时代科技向善、智惠民生的发展大方向，数字技术正跳出实验室与产业园区，持续向城市公共空间下沉渗透，以普惠化、便民化的落地思路，重构城市绿地、滨水岛屿、环湖公园的公共服务形态。全民健身作为民生保障的关键一环，各地依托智慧城市建设浪潮，纷纷推动传统郊野岛屿、滨水闲置绿地转型升级，一大批融合智能监测、数字健身、智慧运维的智慧体育公园在国内各大城市落地生根，用科技温度补齐大众就近健身的民生短板，践行科技服务人民的初心。</p>
+
+<p>坐落于武昌内环的沙湖片区，便是国内滨水岛屿智慧化改造的典型缩影。作为武汉主城稀缺的原生湖岛空间，早年沙湖沿岸滩涂杂乱、休闲设施缺失，环湖缺少标准化健身场地，周边居民就近运动需求长期难以满足。紧跟国家《全民健身计划纲要》与湖北省智慧城建落地部署，沙湖依托湖泊岛屿得天独厚的自然禀赋，完成生态修复与智慧化双重改造，打造出武汉标杆型滨水智慧体育公园，将物联网、大数据、智能传感等前沿科技和湖泊生态、全民健身体验深度融合，成为科技赋能岛域民生建设的鲜活样本。</p>
+
+<p>晨雾氤氲湖岛之时，老年群体在智能健身区使用数字化器材康养锻炼；落日铺满环湖绿道之际，上班族、高校学子借助智慧步道、自助体测设备开展运动。原本闲置的城市湖岛，借由科技赋能变身全龄友好的全民健身乐园，让抽象的“科技向善”，化作市民脚下可踏、身边可用的民生实景。</p>
+
+<p>本期《科技向善，智惠民生》专题，我们以沙湖智慧体育公园为实地调研样本，拆解滨水岛屿智慧公园的智能化配套建设逻辑，同时放眼国内多座城市的岛域智慧体育项目，横向对比各地落地案例，深度探寻数字科技如何扎根城市岛屿、落地民生健身，让科技红利普惠寻常百姓。</p>
+
+<p>在全民健身国家战略深入实施、智慧体育加速普及的时代背景下，智慧体育公园成为城市公共体育服务升级的重要载体。武汉沙湖智慧体育公园依托智能设备、生态景观与便民服务，打造集科学健身、休闲社交、数据监测于一体的现代化运动空间，是科技赋能民生健身的典型示范。</p>
+
+<p>本次融媒体专题以纪实视角、体验视角、科普视角为核心，聚焦实景智能设施、市民真实运动体验、便民服务价值，传递“科技赋能体育、运动点亮生活”的核心理念。</p>
+
+</div>
+
+<script>
+let isScrollAnimating = false;
+document.body.addEventListener('click', function(e){
+    // 点击链接、图片不执行滚动
+    const target = e.target;
+    if(target.tagName === 'A' || target.tagName === 'IMG' || target.closest('.img-box')){
+        return;
+    }
+    if(isScrollAnimating) return;
+    isScrollAnimating = true;
+
+    // 滚动到页面底部
+    window.scrollTo(0, document.body.scrollHeight);
+
+    // 底部停留1.2秒后滚回顶部
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            isScrollAnimating = false;
+        }, 800)
+    }, 1200)
+})
+</script>
+</body>
+</html>

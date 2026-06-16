@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei"}
+:root{--main:#39c470;--dark:#145932;--lite:#a2e9bd;--bg:#05140c;}
+body{
+    background:var(--bg);
+    color:#e8f8ef;
+    padding:35px 5%;
+    position:relative;
+    scroll-behavior: smooth;
+}
+body::before{content:"";position:fixed;width:100%;height:100%;top:0;left:0;background-image:linear-gradient(rgba(57,196,112,0.07)1px,transparent 1px),linear-gradient(90deg,rgba(57,196,112,0.07)1px,transparent 1px);background-size:50px 50px;z-index:-3;}
+.back{display:inline-block;padding:11px 22px;background:rgba(57,196,112,0.35);color:#fff;text-decoration:none;border-radius:8px;margin-bottom:30px;border:1px solid #39c470;}
+.back:hover{background:rgba(57,196,112,0.55);}
+.content{max-width:1250px;margin:0 auto;background:rgba(255,255,255,0.04);backdrop-filter:blur(8px);border:1px solid rgba(57,196,112,0.25);border-radius:18px;padding:32px;}
+h2{color:var(--lite);border-left:5px solid var(--main);padding-left:14px;margin-bottom:22px;}
+p{line-height:1.85;margin-bottom:25px;}
+.to-three{
+    padding:10px 24px;
+    background:rgba(57,196,112,0.35);
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    display:inline-block;
+    border:1px solid #39c470;
+    margin-top:10px;
+}
+.to-three:hover{background:rgba(57,196,112,0.55);}
+/* 取消固定高度，图片自适应原生比例、保留原图清晰度 */
+.img-box{
+    width:100%;
+    border-radius:12px;
+    margin:18px 0;
+    overflow:hidden;
+}
+.img-box img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+ul{padding-left:20px;line-height:1.8;}
+</style>
+</head>
+<body>
+<a href="index.html" class="back">← 返回首页</a>
+<div class="content">
+<h2>市民心声实录｜我在沙湖动起来</h2>
+<div class="img-box">
+<img src="../科技报纸/图片/动.jpg" alt="市民健身实拍">
+</div>
+<p>收集中老年 青年 周边居民 在校大学生四类人群实地采访 记录使用智慧公园的真实体验与评价</p>
+<a href="../科技报纸/心声3.html" class="to-three">查看各项设施详细介绍</a>
+</div>
+
+<script>
+let isScrollAnimating = false;
+document.body.addEventListener('click', function(e){
+    const target = e.target;
+    // 点击链接、图片不触发滚动
+    if(target.tagName === 'A' || target.tagName === 'IMG' || target.closest('.img-box')){
+        return;
+    }
+    if(isScrollAnimating) return;
+    isScrollAnimating = true;
+
+    window.scrollTo(0, document.body.scrollHeight);
+
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            isScrollAnimating = false;
+        }, 800)
+    }, 1200)
+})
+</script>
+</body>
+</html>

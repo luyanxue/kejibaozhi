@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei"}
+:root{--main:#39c470;--dark:#145932;--lite:#a2e9bd;--bg:#05140c;}
+body{
+    background:var(--bg);
+    color:#e8f8ef;
+    padding:35px 5%;
+    position:relative;
+    scroll-behavior: smooth;
+}
+body::before{content:"";position:fixed;width:100%;height:100%;top:0;left:0;background-image:linear-gradient(rgba(57,196,112,0.07)1px,transparent 1px),linear-gradient(90deg,rgba(57,196,112,0.07)1px,transparent 1px);background-size:50px 50px;z-index:-3;}
+.back{display:inline-block;padding:11px 22px;background:rgba(57,196,112,0.35);color:#fff;text-decoration:none;border-radius:8px;margin-bottom:30px;border:1px solid #39c470;}
+.back:hover{background:rgba(57,196,112,0.55);}
+.content{max-width:1250px;margin:0 auto;background:rgba(255,255,255,0.04);backdrop-filter:blur(8px);border:1px solid rgba(57,196,112,0.25);border-radius:18px;padding:32px;}
+h2{color:var(--lite);border-left:5px solid var(--main);padding-left:14px;margin-bottom:22px;}
+h3{color:#b8e8cc;margin:24px 0 12px;font-size:20px;}
+p{line-height:1.85;margin-bottom:25px;}
+.to-three{padding:10px 24px;background:rgba(57,196,112,0.35);color:#fff;text-decoration:none;border-radius:8px;display:inline-block;border:1px solid #39c470;margin-top:20px;}
+.to-three:hover{background:rgba(57,196,112,0.55);}
+/* 图片容器：取消固定高度，自适应比例 */
+.img-box{width:100%;border-radius:12px;margin:20px 0;overflow:hidden;}
+/* 高清渲染 + 等比例缩放，不拉伸 */
+.img-box img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    /* 高清抗锯齿 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+</style>
+</head>
+<body>
+<a href="index.html" class="back">← 返回首页</a>
+<div class="content">
+<h2>公园实景探秘</h2>
+<div class="img-box">
+<img src="../科技报纸/图片/6 (5).jpg" alt="园区设施">
+</div>
+
+<p>沙湖智慧体育公园打造了全套智能化运动与服务体系，依托太阳能供电、智能传感、物联网等技术，搭建起五大特色功能板块，覆盖全年龄段健身、健康检测、安全防护与便民服务，让科技融入日常游园健身的每一处场景。</p>
+
+<h3>一、智能健身器材区</h3>
+<div class="img-box">
+<img src="../科技报纸/图片/5.jpg" alt="智能健身器材区">
+</div>
+<p>园区采用太阳能一体化健身器械，按人群划分三大功能区域，可实时监测运动数据并同步至公示大屏。部分器械支持动能发电，还配备儿童趣味互动设备与语音讲解功能，兼顾实用性与趣味性。</p>
+
+<h3>二、智慧环湖健身步道</h3>
+<div class="img-box">
+<img src="../科技报纸/图片/1.png" alt="智慧环湖健身步道">
+</div>
+<p>1.7公里环湖塑胶步道搭载人脸识别无感打卡系统，自动记录运动数据并生成个人档案与运动榜单，区分快慢行道，满足休闲散步与专业训练不同需求。</p>
+
+<h3>三、智慧健康体测站</h3>
+<div class="img-box">
+<img src="../科技报纸/图片/6 (3).jpg" alt="智慧健康体测站">
+</div>
+<p>园区设置多处免费自助体测设备，90秒即可完成十余项健康筛查，自动生成体检报告并定制专属健身方案，构建起健康检测+科学运动的服务闭环。</p>
+
+<h3>四、智慧环境与安防系统</h3>
+<div class="img-box">
+<img src="../科技报纸/图片/7.jpg" alt="智慧环境与安防系统">
+</div>
+<p>全域布设环境监测终端、太阳能感应路灯、应急呼叫立柱与智能广播，实时公示园区环境数据，全方位保障游园安全与舒适体验。</p>
+
+<h3>五、无障碍与便民服务设施</h3>
+<div class="img-box">
+<img src="../科技报纸/图片/6 (4).jpg" alt="无障碍与便民服务设施">
+</div>
+<p>园区实现全域无障碍通行，搭配智能充电座椅、便民服务驿站、智能查询终端，面向残障人士、老人、亲子家庭等群体提供一站式贴心服务。</p>
+
+<p>以上为园区五大智能板块整体介绍，如需了解设备原理、使用细节、官方报道等完整内容，可点击下方按钮查看详情。</p>
+
+<a href="../科技报纸/公园3.html" class="to-three">查看各项设施详细介绍</a>
+</div>
+
+<script>
+let isScrollAnimating = false;
+document.body.addEventListener('click', function(e){
+    const target = e.target;
+    // 点击链接、图片区域不触发滚动
+    if(target.tagName === 'A' || target.tagName === 'IMG' || target.closest('.img-box')){
+        return;
+    }
+    if(isScrollAnimating) return;
+    isScrollAnimating = true;
+
+    // 平滑滑到页面底部
+    window.scrollTo(0, document.body.scrollHeight);
+
+    // 底部停留1.2秒后自动滚回顶部
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            isScrollAnimating = false;
+        }, 800)
+    }, 1200)
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei"}
+:root{--main:#39c470;--dark:#145932;--lite:#a2e9bd;--bg:#05140c;}
+html{scroll-behavior: smooth;}
+body{background:var(--bg);color:#e8f8ef;position:relative;overflow-x:hidden;}
+body::before{
+    content:"";position:fixed;top:0;left:0;width:100%;height:100%;
+    background-image:linear-gradient(rgba(57,196,112,0.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(57,196,112,0.07) 1px,transparent 1px);
+    background-size:50px 50px;z-index:-3;
+}
+.dec-leaf{position:fixed;width:70px;opacity:0.22;fill:var(--main);z-index:-2}
+.l1{top:10%;right:2%;}
+.l2{bottom:15%;left:2%;}
+.dec-sp{position:fixed;width:60px;opacity:0.2;fill:var(--lite);z-index:-2}
+.s1{top:32%;left:1%;}
+.s2{bottom:30%;right:1.5%;}
+
+/* 导航栏缩小，移除标题后居中布局 */
+header{
+    background:linear-gradient(90deg,var(--dark),var(--main),var(--dark));
+    padding:12px 5%;box-shadow:0 0 30px #39c47035;
+}
+.head-wrap{
+    max-width:1380px;margin:0 auto;
+    display:flex;justify-content:center;align-items:center;
+}
+/* 隐藏原有logo标题 */
+.logo{display: none;}
+
+/* 缩小导航文字、间距 */
+.nav a{
+    color:#e8f8ef;text-decoration:none;
+    margin:0 9px;font-size:14px;transition:0.3s;
+}
+.nav a:hover{color:var(--lite);}
+
+/* 单张大图区域 替代原轮播 */
+.banner{
+    width:100vw;
+    height:100vh;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    border:none;
+    border-radius:0;
+    box-shadow:none;
+    position:relative;
+}
+/* 单图容器铺满全屏 */
+.ban-img{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    cursor: pointer;
+    animation: scaleIn 1.2s ease-out forwards;
+}
+@keyframes scaleIn {
+    0%{transform: scale(1.1); opacity: 0.8;}
+    100%{transform: scale(1); opacity: 1;}
+}
+/* 图片自适应全屏不变形 */
+.ban-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+}
+/* 隐藏轮播按钮、小圆点 */
+.prev,.next,.dot-group{
+    display: none;
+}
+
+.title-tip{text-align:center;margin:65px 0 38px;}
+.title-tip h2{font-size:28px;color:var(--lite);text-shadow:0 0 8px rgba(57,196,112,0.35)}
+.card-box{
+    max-width:1380px;margin:0 auto;padding:0 4%;display:grid;grid-template-columns:repeat(5,1fr);gap:25px;
+}
+.card{
+    background:rgba(255,255,255,0.06);
+    backdrop-filter: blur(8px);
+    border:1px solid rgba(57,196,112,0.18);
+    border-radius:18px;padding:28px;text-align:center;transition:0.38s;
+}
+.card:hover{
+    transform:translateY(-9px);
+    box-shadow:0 0 35px rgba(57,196,112,0.22);
+    border-color:rgba(57,196,112,0.35);
+    background:rgba(255,255,255,0.09);
+}
+.card h3{color:var(--lite);margin-bottom:15px;font-size:17px;}
+.card a{
+    display:inline-block;padding:9px 20px;background:rgba(57,196,112,0.35);
+    color:#fff;text-decoration:none;border-radius:8px;font-weight:500;
+}
+.card a:hover{background:rgba(57,196,112,0.55);}
+.news-paper{text-align:center;margin:70px 0;}
+.news-paper a{
+    padding:14px 38px;background:rgba(57,196,112,0.35);color:#fff;text-decoration:none;
+    border-radius:9px;font-size:18px;font-weight:bold;
+}
+.news-paper a:hover{background:rgba(57,196,112,0.55);}
+footer{
+    margin-top:90px;padding:38px;text-align:center;border-top:1px solid rgba(57,196,112,0.18);color:#96c9a9;
+}
+@media(max-width:750px){
+    .card-box{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<svg class="dec-leaf l1" viewBox="0 0 24 24"><path d="M12 2C7 2 3.5 5.8 3.5 12s8.5 10.2 8.5 10.2S20.5 18.2 20.5 12 17 2 12 2z"/></svg>
+<svg class="dec-leaf l2" viewBox="0 0 24 24"><path d="M12 2C7 2 3.5 5.8 3.5 12s8.5 10.2 8.5 10.2S20.5 18.2 20.5 12 17 2 12 2z"/></svg>
+<svg class="dec-sp s1" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><path d="M12 8l-3 7-2 3m5-10l3 7l2 3"/></svg>
+<svg class="dec-sp s2" viewBox="0 0 24 24"><circle cx="12" cy="6" r="3"/><path d="M12 9v7l-4 4m4-11l4 4"/></svg>
+
+<header>
+<div class="head-wrap">
+<div class="logo"><span class="highlight">科技向善·智惠民生</span></div>
+<div class="nav">
+<a href="#banner">首页</a>
+<a href="./开篇.html">开篇导语</a>
+<a href="./公园.html"">实景探秘</a>
+<a href="心声.html">市民心声</a>
+<a href="./图鉴.html">全国图鉴</a>
+<a href="./互动.html">趣味互动</a>
+</div>
+</div>
+</header>
+
+<div class="banner" id="banner">
+    <!-- 单张首页大图，路径使用相对路径 -->
+    <div class="ban-img" onclick="scrollToContent()">
+        <img src="../科技报纸/图片/首页.jpg" alt="首页背景图">
+    </div>
+</div>
+
+<div class="title-tip" id="content">
+</div>
+<div class="card-box">
+<div class="card"><h3>开篇导语</h3><a href="./开篇.html">进入栏目</a></div>
+<div class="card"><h3>公园实景探秘</h3><a href="./公园.html">进入栏目</a></div>
+<div class="card"><h3>市民心声实录</h3><a href="./心声.html">进入栏目</a></div>
+<div class="card"><h3>全国智园图鉴</h3><a href="./图鉴.html">进入栏目</a></div>
+<div class="card"><h3>趣味互动空间</h3><a href="./互动.html">进入栏目</a></div>
+</div>
+
+<div class="news-paper"><a href="../科技报纸/news.pdf" target="_blank">📰 点击进入专题电子报纸阅览</a></div>
+<footer>沙湖智慧体育公园融媒体专题 | 第四小组制作</footer>
+<script>
+// 仅保留 点击图片滚动到下方栏目 功能，删除所有轮播代码
+function scrollToContent(){
+    document.getElementById('content').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+</script>
+</body>
+</html>

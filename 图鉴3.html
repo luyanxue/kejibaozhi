@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei"}
+:root{--main:#39c470;--dark:#145932;--lite:#a2e9bd;--bg:#05140c;}
+body{background:var(--bg);color:#e8f8ef;padding:35px 5%;position:relative;}
+body::before{content:"";position:fixed;width:100%;height:100%;top:0;left:0;background-image:linear-gradient(rgba(57,196,112,0.07)1px,transparent 1px),linear-gradient(90deg,rgba(57,196,112,0.07)1px,transparent 1px);background-size:50px 50px;z-index:-3;}
+
+.back{
+    display:inline-block;
+    padding:10px 22px;
+    background:rgba(57,196,112,0.35);
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    margin-bottom:30px;
+    border:1px solid #39c470;
+}
+.back:hover{
+    background:rgba(57,196,112,0.55);
+}
+.content{
+    max-width:1250px;
+    margin:0 auto;
+    background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(57,196,112,0.25);
+    border-radius:18px;
+    padding:32px;
+}
+h2{color:var(--lite);margin-bottom:22px;}
+
+/* 图片区域 */
+.img-row{
+    display:grid;
+    grid-template-columns: repeat(1,1fr);
+    gap:10px;
+    margin:20px 0;
+}
+.img-row .img-box{
+    width:100%;
+    height:320px;
+    border-radius:12px;
+    overflow:hidden;
+}
+.img-row .img-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+ul{padding-left:22px;line-height:1.8;}
+p{margin-top:15px;line-height:1.8;}
+
+/* 地图容器样式 */
+.map-wrapper{max-width:1200px;margin:30px auto;}
+.map-title{text-align:center;color:var(--lite);margin-bottom:18px;font-size:22px;}
+.china-map{
+    width:100%;
+    height:450px;
+    border:2px solid var(--main);
+    border-radius:10px;
+    position:relative;
+    overflow: hidden;
+}
+/* 地图主体图片 */
+.china-map > img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+/* 点位标记 */
+.map-point{
+    width:16px;
+    height:16px;
+    background:#ff3c3c;
+    border-radius:50%;
+    position:absolute;
+    transform:translate(-50%,-50%);
+    cursor:pointer;
+    box-shadow:0 0 10px #ff2222;
+    z-index: 2;
+}
+.point-name{
+    position:absolute;
+    background:#145932;
+    color:#fff;
+    padding:6px 10px;
+    border-radius:6px;
+    font-size:13px;
+    white-space:nowrap;
+    opacity:0;
+    transition:0.3s;
+    pointer-events:none;
+    border:1px solid var(--main);
+    z-index: 3;
+}
+.park-list{
+    margin-top:22px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:14px;
+}
+.park-item{
+    background:rgba(255,255,255,0.05);
+    padding:14px;
+    border-left:4px solid var(--main);
+    border-radius:6px;
+}
+.park-item h4{color:var(--lite);margin-bottom:6px;}
+.park-item a{color:var(--lite);text-decoration:none;}
+.park-item a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+<a href="../科技报纸/图鉴.html" class="back">← 返回上一级</a>
+<a href="../科技报纸/index.html" class="back">← 返回首页</a>
+
+<div class="content">
+    <h2>全国标杆智慧公园完整名录</h2>
+
+    <div class="img-row">
+        <div class="img-box"><img src="../科技报纸/图片/图鉴.jpg" alt="公园"></div>
+    </div>
+
+    <!-- 互动地图 -->
+    <div class="map-wrapper">
+        <div class="map-title">全国六大智慧体育公园分布地图</div>
+        <div class="china-map">
+            <!-- 替换为指定地图图片 -->
+            <img src="../科技报纸/图片/地图.png" alt="分布地图">
+
+            <!-- 武汉沙湖 -->
+            <div class="map-point" style="left:52%;top:58%;" data-url="https://www.wuhansports.cn/">
+                <div class="point-name">武汉-沙湖智慧体育公园</div>
+            </div>
+            <!-- 北京奥林匹克 -->
+            <div class="map-point" style="left:65%;top:24%;" data-url="http://www.bjofp.cn/">
+                <div class="point-name">北京-奥林匹克智慧体育公园</div>
+            </div>
+            <!-- 上海静安 -->
+            <div class="map-point" style="left:72%;top:62%;" data-url="https://www.shggty.com.cn/">
+                <div class="point-name">上海-静安智慧体育公园</div>
+            </div>
+            <!-- 广州天河奥体 -->
+            <div class="map-point" style="left:49%;top:78%;" data-url="https://link.wtturl.cn/?target=http%3A%2F%2Ftyj.gz.gov.cn%2F&scene=im&aid=497858&lang=zh">
+                <div class="point-name">广州-天河智慧体育公园</div>
+            </div>
+            <!-- 杭州钱江 -->
+            <div class="map-point" style="left:66%;top:65%;" data-url="https://link.wtturl.cn/?target=https%3A%2F%2Fcdsport.chengdu.gov.cn%2F&scene=im&aid=497858&lang=zh">
+                <div class="point-name">杭州-钱江智慧体育公园</div>
+            </div>
+            <!-- 成都锦城湖 -->
+            <div class="map-point" style="left:32%;top:56%;" data-url="https://link.wtturl.cn/?target=https%3A%2F%2Fcdsport.chengdu.gov.cn%2F&scene=im&aid=497858&lang=zh">
+                <div class="point-name">成都-锦城湖智慧体育公园</div>
+            </div>
+        </div>
+
+        <div class="park-list">
+            <div class="park-item">
+                <h4>武汉｜沙湖智慧体育公园</h4>
+                <a target="_blank" href="https://www.wuhansports.cn/">点击进入官网</a>
+            </div>
+            <div class="park-item">
+                <h4>北京｜奥林匹克智慧体育公园</h4>
+                <a target="_blank" href="http://www.bjofp.cn/">点击进入官网</a>
+            </div>
+            <div class="park-item">
+                <h4>上海｜静安智慧体育公园</h4>
+                <a target="_blank" href="https://www.shggty.com.cn/">点击进入官网</a>
+            </div>
+            <div class="park-item">
+                <h4>广州｜天河智慧体育公园</h4>
+                <a target="_blank" href="https://link.wtturl.cn/?target=http%3A%2F%2Ftyj.gz.gov.cn%2F&scene=im&aid=497858&lang=zh">点击进入官网</a>
+            </div>
+            <div class="park-item">
+                <h4>杭州｜钱江智慧体育公园</h4>
+                <a target="_blank" href="https://link.wtturl.cn/?target=http%3A%2F%2Fty.hangzhou.gov.cn%2F&scene=im&aid=497858&lang=zh">点击进入官网</a>
+            </div>
+            <div class="park-item">
+                <h4>成都｜锦城湖智慧体育公园</h4>
+                <a target="_blank" href="https://link.wtturl.cn/?target=https%3A%2F%2Fcdsport.chengdu.gov.cn%2F&scene=im&aid=497858&lang=zh">点击进入官网</a>
+            </div>
+        </div>
+    </div>
+
+    <ul>
+        <li>武汉——沙湖智慧体育公园</li>
+        <li>北京——奥林匹克智慧体育公园</li>
+        <li>上海——静安智慧健身公园</li>
+        <li>广州——天河智慧体育公园</li>
+        <li>杭州——钱江智慧公园</li>
+        <li>成都——锦城湖智慧公园</li>
+    </ul>
+
+    <p>沙湖公园依托城市内湖生态，打造华中地区标杆智慧健身空间，年接待健身市民超30万人次。</p>
+</div>
+
+<script>
+let allPoint = document.querySelectorAll('.map-point');
+allPoint.forEach(ele=>{
+    let tip = ele.querySelector('.point-name');
+    ele.onmouseover = ()=> tip.style.opacity = 1;
+    ele.onmouseout = ()=> tip.style.opacity = 0;
+    ele.onclick = ()=> window.open(ele.dataset.url,'_blank');
+})
+</script>
+
+</body>
+</html>

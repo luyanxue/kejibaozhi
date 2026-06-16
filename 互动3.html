@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei"}
+:root{--main:#39c470;--dark:#145932;--lite:#a2e9bd;--bg:#05140c;}
+body{background:var(--bg);color:#e8f8ef;padding:35px 5%;position:relative;}
+body::before{content:"";position:fixed;width:100%;height:100%;top:0;left:0;background-image:linear-gradient(rgba(57,196,112,0.07)1px,transparent 1px),linear-gradient(90deg,rgba(57,196,112,0.07)1px,transparent 1px);background-size:50px 50px;z-index:-3;}
+.back{
+    display:inline-block;
+    padding:10px 22px;
+    background:rgba(57,196,112,0.35);
+    color:#fff;
+    text-decoration:none;
+    border-radius:8px;
+    margin-bottom:30px;
+    border:1px solid #39c470;
+    margin-right:12px;
+}
+.back:hover{
+    background:rgba(57,196,112,0.55);
+}
+.content{max-width:1250px;margin:0 auto;background:rgba(255,255,255,0.04);backdrop-filter:blur(8px);border:1px solid rgba(57,196,112,0.25);border-radius:18px;padding:32px;}
+h2{color:var(--lite);margin-bottom:22px;font-size:24px}
+.img-box{width:100%;border-radius:12px;margin:15px 0;overflow:hidden;background:#000;}
+.img-box img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+ul{padding-left:22px;line-height:1.9;margin-bottom:25px;}
+li{margin-bottom:10px;}
+h3{color:#b8e8cc;margin:28px 0 12px;font-size:20px;}
+p{line-height:1.8;margin-bottom:16px;}
+
+/* 新增：留言模块样式 */
+.comment-box{
+    margin-top:40px;
+    padding:24px;
+    background:rgba(57,196,112,0.08);
+    border-radius:12px;
+    border:1px solid rgba(57,196,112,0.2);
+}
+.comment-title{
+    color:var(--lite);
+    font-size:20px;
+    margin-bottom:18px;
+}
+.comment-input{
+    width:100%;
+    height:120px;
+    padding:12px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid var(--main);
+    border-radius:8px;
+    color:#e8f8ef;
+    font-size:15px;
+    resize:none;
+    outline:none;
+    margin-bottom:15px;
+}
+.comment-input::placeholder{
+    color:rgba(232, 248, 239, 0.5);
+}
+.btn-send{
+    padding:9px 26px;
+    background:rgba(57,196,112,0.4);
+    color:#fff;
+    border:1px solid var(--main);
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    transition:all 0.3s;
+}
+.btn-send:hover{
+    background:rgba(57,196,112,0.6);
+}
+.comment-list{
+    margin-top:30px;
+}
+.comment-item{
+    padding:14px;
+    background:rgba(255,255,255,0.03);
+    border-radius:8px;
+    margin-bottom:12px;
+    border-left:3px solid var(--main);
+}
+</style>
+</head>
+<body>
+
+<a href="../科技报纸/互动.html" class="back">← 返回上一级</a>
+<a href="../科技报纸/index.html" class="back">← 返回首页</a>
+
+<div class="content">
+<h2>互动展示</h2>
+
+<div class="img-box">
+<img src="../科技报纸/图片/6 (2).jpg" alt="园区实拍1">
+</div>
+<div class="img-box">
+<img src="../科技报纸/图片/6 (1).jpg" alt="园区实拍2">
+</div>
+<div class="img-box">
+<img src="../科技报纸/图片/6 (6).jpg" alt="园区实拍3">
+</div>
+
+<ul>
+<li>沙湖公园休闲健身推荐路线</li>
+<li>智能健身器材使用科普说明</li>
+<li>30天线上健身打卡挑战</li>
+<li>市民最喜爱设施投票活动</li>
+<li>游客体验留言分享板块</li>
+</ul>
+
+<h3>一、推荐运动路线</h3>
+<p>沙湖智慧体育公园位于武汉市武昌区沙湖B区，毗邻沙湖大桥与烟霞路，是城区核心的智慧型全民运动公园。</p>
+<p>园区以1.7千米官方环湖智慧主步道为核心骨架，结合不同年龄人群的运动强度、游玩需求、体能特点，实地规划打造三条分层、分段、全覆盖的精品运动路线，适配中老年康养、青年健身、亲子休闲三大场景，路线规划科学、路况安全、配套完善，适配日常锻炼与休闲出游。</p>
+<p><strong>康养休闲线 1.0km（适配中老年人群）</strong></p>
+<p>整条路线全程平缓通畅，无陡坡、无台阶、无复杂岔路，专为中老年慢运动、康养健身设计。路线起始于园区正门AI智慧体测中心，串联长青智能康养器材片区与滨湖绿植休憩景观带，动线轻松舒缓。入园游客可免费体验专业AI体测服务，快速了解自身身体基础数据。</p>
+<p>沿线所有康养器械支持智能语音调控，操作简单易懂。步道每间隔200米就设置休闲座椅、遮阳廊架与休息平台，沿途绿植覆盖率高，临湖通风舒适，环境清幽静谧，非常适合中老年人群日常散步、慢走、拉伸放松与常态化康养锻炼。</p>
+<p><strong>活力慢跑线 1.7km（适配青年、大学生、上班族）</strong></p>
+<p>作为园区主力健身路线，全线采用高品质荧光防滑塑胶材质铺设，路面宽度达两米，回弹舒适、耐磨防滑，运动体验极佳。步道搭载全自动智能感应照明系统，傍晚天色变暗后可自动亮灯，支持夜间安全运动。</p>
+<p>游客在步道入口完成一次人脸识别建档后，后续每次跑步途经感应点位，系统将自动精准记录运动里程、实时配速、运动时长等完整数据，全程无需手动操作。路线沿线配套AI虚拟骑行大屏、智能八段锦体感交互设备，趣味健身功能丰富。</p>
+<p>园区额外规划4.5km专业赛事复合环线，由主步道搭配林间支路组合而成，适配大学生夜跑、社团团建、业余路跑训练以及小型全民健身赛事活动。</p>
+<p><strong>亲子游玩线 0.75km（适配家庭全员出游）</strong></p>
+<p>专为家庭亲子游玩打造的短距离轻松路线，整体路程短、节奏慢、安全性高。路线起点为园区便民服务驿站，驿站提供免费饮用水、临时储物柜、休息座椅等基础便民服务。</p>
+<p>路线依次串联3V3标准露天球类训练场、儿童AI游戏骑行体验区、滨湖无障碍慢行步道，全线采用无障碍平整路面，婴儿推车、老人轮椅均可顺畅通行，全程无安全隐患。园区特色自发电智能健身器械独具趣味，家长和孩子通过运动发力即可自主发电，实现运动无线充电，真正做到运动实用两不误。</p>
+<p>路线沿途配有休闲草坪、小型趣味沙坑、亲子休息区，既能满足孩子游玩需求，也方便家长休息放松，是城市家庭周末轻出游、户外互动锻炼的优质选择。</p>
+
+<h3>二、智能器材规范使用科普</h3>
+<p>沙湖智慧体育公园配备大量现代化智能健身设备，操作智能便捷、功能全面。为保障游客运动安全，延长设备使用寿命，提升健身体验，现将园区主流智能器材的标准使用规范、操作要点与禁忌事项详细说明，新手游客也可安全、规范、高效使用。</p>
+<p><strong>AI自助体测站：</strong>体测前需提前摘除项链、手镯、钥匙、手表等所有金属配饰，避免干扰设备感应数据。检测时赤脚站立在设备专属脚印定位标识上，保持身体直立、放松平稳，严格跟随设备语音提示完成站姿调整、呼吸配合等检测动作。</p>
+<p>检测结束后，可直接扫码保存完整个人体检数据报告，方便长期记录自身健康变化。为保证数据精准度，空腹状态、饭后立即运动、剧烈运动结束半小时以内，不建议进行体测检测。</p>
+<p><strong>智慧环湖步道：</strong>首次使用智慧步道需在入口感应点位完成人脸识别建档，建档永久有效，后续可直接记录运动数据。日常步行、慢跑需在塑胶主步道范围内运动，系统仅识别主步道有效轨迹，偏离主步道进入林间小路、湖边土路将不计入有效运动里程。</p>
+<p>遇到暴雨、雷电、大雾等恶劣天气，步道智能感应系统会自动暂停运行，暂时无法记录运动数据，建议天气好转后再进行锻炼。</p>
+<p><strong>AI体感大屏&智能骑行器材：</strong>使用智能骑行设备前，必须坐好固定身形，扣紧脚踏安全卡扣，杜绝滑行、脱落、踩空等安全隐患。体验大屏体感互动项目时，禁止奔跑冲撞、大力触碰屏幕。</p>
+<p>12周岁以下未成年儿童使用所有体感、骑行智能设备时，必须有家长全程陪同看护，规范引导孩子正确使用设备，避免意外磕碰与设备损坏。</p>
+
+<h3>三、运动心得分享留言区</h3>
+<p>本留言板块面向全国所有智慧体育公园爱好者免费开放，搭建全国智慧健身爱好者的线上交流平台，打造沉浸式运动互动社区。</p>
+<p>1、打卡记录分享：自由发布武汉沙湖智慧公园或全国各大城市智慧体育公园的日常健身记录、户外出游实拍、运动vlog图文、日常锻炼日常，真实记录运动点滴，展示全民健身风貌。</p>
+<p>2、实用游玩攻略：分享园区错峰锻炼最佳时段、人少清净的小众休闲点位、免费AI体测预约小技巧、低成本亲子游玩方案，同时可分享园区周边美食、交通路线、停车攻略等实用干货。</p>
+<p>3、智能器材测评：结合自身实地体验，测评智慧跑道、AI体测设备、体感大屏、自发电器械等各类智能设施，真实反馈设备优缺点、使用手感、适配人群，为其他游客提供避坑参考。</p>
+<p>4、园区优化建言：针对园区器材维保更新、运动路线优化调整、便民设施新增、全民健身主题活动策划、场地开放规则等方面，提出合理化改进建议。平台将收集优质建议，统一反馈至园区管理运营方。</p>
+<p>平台会定期筛选高质量原创投稿内容，优质留言将长期网页置顶展示，极具参考价值的优秀稿件，还将同步在沙湖智慧体育公园线下户外智慧大屏滚动播放，全方位展示游客运动风采与优质分享内容。</p>
+
+<!-- 新增留言交互模块 -->
+<div class="comment-box">
+    <div class="comment-title">我要留言</div>
+    <textarea class="comment-input" placeholder="请在这里分享你的运动体验、游玩心得或建议..."></textarea>
+    <button class="btn-send">提交留言</button>
+
+    <!-- 留言展示区域 -->
+    <div class="comment-list">
+        <div class="comment-item">第一次来沙湖智慧公园，步道体验很棒，夜间照明很贴心！</div>
+        <div class="comment-item">带孩子来亲子路线游玩，设施安全又有趣，值得推荐。</div>
+    </div>
+</div>
+
+</div>
+
+<!-- 简单JS实现前端留言添加效果（纯前端演示） -->
+<script>
+    const textarea = document.querySelector('.comment-input');
+    const sendBtn = document.querySelector('.btn-send');
+    const commentList = document.querySelector('.comment-list');
+
+    sendBtn.addEventListener('click',function(){
+        let val = textarea.value.trim();
+        if(val === ''){
+            alert('请输入留言内容！');
+            return;
+        }
+        // 创建新留言
+        let newComment = document.createElement('div');
+        newComment.className = 'comment-item';
+        newComment.innerText = val;
+        // 添加到列表最上方
+        commentList.insertBefore(newComment,commentList.firstChild);
+        // 清空输入框
+        textarea.value = '';
+    });
+</script>
+
+</body>
+</html>

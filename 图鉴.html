@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei"}
+:root{--main:#39c470;--dark:#145932;--lite:#a2e9bd;--bg:#05140c;}
+body{
+    background:var(--bg);
+    color:#e8f8ef;
+    padding:35px 5%;
+    position:relative;
+    scroll-behavior: smooth;
+}
+body::before{content:"";position:fixed;width:100%;height:100%;top:0;left:0;background-image:linear-gradient(rgba(57,196,112,0.07)1px,transparent 1px),linear-gradient(90deg,rgba(57,196,112,0.07)1px,transparent 1px);background-size:50px 50px;z-index:-3;}
+
+.back{
+    display:inline-block;padding:11px 22px;background:rgba(57,196,112,0.35);
+    color:#fff;text-decoration:none;border-radius:8px;margin-bottom:30px;
+    border:1px solid #39c470;
+}
+.back:hover{background:rgba(57,196,112,0.55);}
+
+.content{
+    max-width:1250px;margin:0 auto;background:rgba(255,255,255,0.04);
+    backdrop-filter:blur(8px);border:1px solid rgba(57,196,112,0.25);
+    border-radius:18px;padding:32px;
+}
+
+h2{color:var(--lite);border-left:5px solid var(--main);padding-left:14px;margin-bottom:22px;}
+p{line-height:1.85;margin-bottom:25px;}
+
+.to-three{
+    padding:10px 24px;background:rgba(57,196,112,0.35);
+    color:#fff;text-decoration:none;border-radius:8px;display:inline-block;
+    border:1px solid #39c470;
+    margin-top:15px;
+}
+.to-three:hover{background:rgba(57,196,112,0.55);}
+
+.img-box{
+    width:100%;
+    border-radius:12px;
+    margin:18px 0;
+    overflow:hidden;
+    background:#000;
+}
+.img-box img{
+    width:100%;
+    height:auto;
+    display:block;
+    object-fit:contain;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* ========== 地图样式 ========== */
+.map-wrapper{max-width:1200px;margin:30px auto;}
+.map-title{text-align:center;color:var(--lite);margin-bottom:18px;font-size:22px;}
+.china-map{
+    width:65%;
+    margin:0 auto;
+    height:auto;
+    min-height:300px;
+    /* 修正路径+正确文件名：同文件夹直接图片/，文件是地图2.png */
+    background:#0a2a1a url("图片/地图2.png") center/contain no-repeat;
+    border:2px solid var(--main);
+    border-radius:10px;
+    position:relative;
+}
+.map-point{
+    width:16px;height:16px;background:#ff3c3c;border-radius:50%;
+    position:absolute;transform:translate(-50%,-50%);cursor:pointer;
+    box-shadow:0 0 10px #ff2222;
+    z-index:2;
+}
+.point-name{
+    position:absolute;background:#145932;color:#fff;padding:6px 10px;
+    border-radius:6px;font-size:13px;white-space:nowrap;
+    opacity:0;transition:0.3s;pointer-events:none;border:1px solid var(--main);
+    z-index:3;
+}
+.park-list{margin-top:22px;display:grid;grid-template-columns: repeat(3, 1fr);gap:14px;}
+.park-item{
+    background:rgba(255,255,255,0.05);padding:14px;
+    border-left:4px solid var(--main);border-radius:6px;
+}
+.park-item h4{color:var(--lite);margin-bottom:6px;}
+.park-item a{color:var(--lite);text-decoration:none;}
+.park-item a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="back">← 返回首页</a>
+
+<div class="content">
+    <h2>全国智园图鉴｜国内标杆智慧公园汇总</h2>
+    <div class="img-box">
+        <!-- 修正图片路径与后缀，匹配你的实际文件地图2.png -->
+        <img src="图片/地图2.png" alt="全国公园分布图">
+    </div>
+    <a href="图鉴3.html" class="to-three">查看完整介绍</a>
+</div>
+
+<script>
+let allPoint = document.querySelectorAll('.map-point');
+allPoint.forEach(ele=>{
+    let tip = ele.querySelector('.point-name');
+    ele.onmouseover = ()=> tip.style.opacity = 1;
+    ele.onmouseout = ()=> tip.style.opacity = 0;
+    ele.onclick = ()=> window.open(ele.dataset.url,'_blank');
+})
+
+// 页面点击空白自动滚动到底再返回顶部
+let isScrollAnimating = false;
+document.body.addEventListener('click', function(e){
+    const target = e.target;
+    if(target.tagName === 'A' || target.tagName === 'IMG' || target.closest('.img-box')){
+        return;
+    }
+    if(isScrollAnimating) return;
+    isScrollAnimating = true;
+    window.scrollTo(0, document.body.scrollHeight);
+    setTimeout(() => {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            isScrollAnimating = false;
+        }, 800)
+    }, 1200)
+})
+</script>
+
+</body>
+</html>
